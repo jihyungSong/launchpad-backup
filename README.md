@@ -10,12 +10,15 @@ SpaceONE infrastructure automation provisioning code
 ## Terraform
 
 * Guaranteed Terraform Version 0.14.2
-* Separated from each supported parts
-* Thus, Each parts is must be excuted separately
+* Separated workspace from each supported parts
+* Thus, Each parts is must be executed separately
 
 ### Supported Part list
-
 * mongodb
+
+
+
+<br/>
 
 ### How to use
 
@@ -46,14 +49,15 @@ Fill out `backend.tfvars` values and `terraform init` run
 <code>> terraform init --var-file=backend.tfvars</code>
 </pre>
 
+<br/>
 
-#### 2. Fill out *.tfvars for environments
+#### 2. Fill out `*.tfvars` for environments
 
 Each parts included `tfvars` file for your environment properly.
 
 For example, mongodb parts included `security_group.tfvars` and `shard_cluster.tfvars`.
 
-Let's check security_group.tfvars. 
+Let's see a `security_group.tfvars` for instance.
 <pre> # security_group.tfvars
 <code>
 region                        =   ""
@@ -65,7 +69,7 @@ mongodb_app_ingress_rule_mongodb_access_security_group_id   = ""    # From Sourc
 </code>
 </pre>
 
-You can fill out all of tfvars in each parts.
+You can fill out all of `.tfvars` in each parts.
 
 #### 3. Terraform plan
 
@@ -80,10 +84,11 @@ We already add `dev.tfvars` for example.
 region        = ""</code>
 </pre>
 
+Fill out the values in `dev.tfvars`.
 
 It's time to run the `Terraform plan` !
 
-If you run the mongodb with tfvars,  
+If you run the mongodb with all of `tfvars` in mongodb parts,  
 <pre>
 <code>> terraform plan --var-file=dev.tfvars --var-file=security_group.tfvars --var-file=shard_cluster.tfvars</code>
 </pre>
