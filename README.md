@@ -26,7 +26,7 @@ SpaceONE infrastructure automation provisioning code
 
 we recommended to use S3 Backend for state management and state locking.
 
-`backend.tfvars` file looks like
+`tfvars/backend.tfvars` file looks like
 
 <pre>
 <code>
@@ -46,14 +46,14 @@ dynamodb_table = ""
 Fill out `backend.tfvars` values and `terraform init` run
 
 <pre>
-<code>> terraform init --var-file=backend.tfvars</code>
+<code>> terraform init --var-file=./tfvars/backend.tfvars</code>
 </pre>
 
 <br/>
 
 #### 2. Fill out `*.tfvars` for environments
 
-Each parts included `tfvars` file for your environment properly.
+Each parts included `tfvars` file in `./tfvars` directory for your environment properly.
 
 For example, mongodb parts included `security_group.tfvars` and `shard_cluster.tfvars`.
 
@@ -75,22 +75,22 @@ You can fill out all of `.tfvars` in each parts.
 
 And then, make file for your environment.
 
-We already add `dev.tfvars` for example.
+We already add `./tfvars/default.tfvars` for example.
 
-`dev.tfvars` is simple. It looks like
+`default.tfvars` is simple. It looks like
 
 <pre>
 <code>environment   = "dev"
 region        = ""</code>
 </pre>
 
-Fill out the values in `dev.tfvars`.
+Fill out the values in `default.tfvars`.
 
 It's time to run the `Terraform plan` !
 
 If you run the mongodb with all of `tfvars` in mongodb parts,  
 <pre>
-<code>> terraform plan --var-file=dev.tfvars --var-file=security_group.tfvars --var-file=shard_cluster.tfvars</code>
+<code>> terraform plan --var-file=./tfvars/default.tfvars --var-file=./tfvars/security_group.tfvars --var-file=./tfvars/shard_cluster.tfvars</code>
 </pre>
 
 
@@ -98,7 +98,7 @@ If you run the mongodb with all of `tfvars` in mongodb parts,
 
 Go to build your spaceONE using launchpad !
 <pre>
-<code>> terraform apply --var-file=dev.tfvars --var-file=security_group.tfvars --var-file=shard_cluster.tfvars</code>
+<code>> terraform apply --var-file=./tfvars/default.tfvars --var-file=./tfvars/security_group.tfvars --var-file=./tfvars/shard_cluster.tfvars</code>
 </pre>
 
 
