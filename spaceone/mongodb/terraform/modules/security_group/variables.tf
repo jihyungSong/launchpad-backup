@@ -1,5 +1,4 @@
 variable "environment" {}
-variable "region" {}
 variable "vpc_id" {}
 
 variable "mongodb_bastion_ingress_rule_admin_access_security_group_id" {}

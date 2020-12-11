@@ -1,6 +1,6 @@
 # SG for MongoDB Bastion Access
 resource "aws_security_group" "mongodb_bastion_sg" {
-  name        = "sg-mongodb-bastion"
+  name        = "mongodb-bastion-${var.environment}"
   vpc_id      = var.vpc_id
 
   # Outbound ALL
@@ -12,7 +12,7 @@ resource "aws_security_group" "mongodb_bastion_sg" {
   }
 
   tags = {
-    Name        = "sg-mongodb-bastion"
+    Name        = "mongodb-bastion-${var.environment}"
     Managed_by  = "terraform"
   }
 }

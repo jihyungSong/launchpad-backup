@@ -1,4 +1,3 @@
-region                        =   ""
 vpc_id                        =   ""
 
 mongodb_bastion_ingress_rule_admin_access_security_group_id = ""    # From Source security group ID for Administrator access

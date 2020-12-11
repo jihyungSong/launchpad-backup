@@ -117,7 +117,7 @@ mongodb_replica_set_members = [
   {
     name          =   "mongodb-s2d3",                     # Replica Set 2 (Arbiter)
     instance_type =   "c5.large",
-    subnet_id   =   ""
+    subnet_id     =   ""
     root_device   =   {
       volume_type =   "gp3",
       volume_size =   100

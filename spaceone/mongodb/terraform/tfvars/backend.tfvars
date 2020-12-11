@@ -1,10 +1,11 @@
 # AWS S3 bucket name for backend
-bucket = ""
+bucket          = ""
 
 # AWS S3 object key for tfstate file
-key = ""
+key             = ""
 
-region = ""
+region          = ""
 
 # support locking via DynamoDB
-dynamodb_table = ""
+dynamodb_table  = ""
+
