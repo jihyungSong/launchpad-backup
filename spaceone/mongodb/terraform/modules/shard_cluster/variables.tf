@@ -1,4 +1,3 @@
-variable "region" {}
 variable "environment" {}
 
 // MongoDB Bastion
