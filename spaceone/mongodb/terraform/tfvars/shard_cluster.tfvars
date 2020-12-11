@@ -1,17 +1,17 @@
 
 // MongoDB Bastion
-mongodb_ami_id                  = "ami-00ddb0e5626798373"     # Ubuntu 18.04 LTS in us-east-1
+mongodb_ami_id                  = ""     # Ubuntu 18.04 LTS in us-east-1
 mongodb_bastion_instance_type   = "t3.micro"
-mongodb_bastion_subnet_id       = "subnet-094cfa044f7da02f7"
-mongodb_bastion_keypair_name    = "jihyungsong-new-key"       # Prepared to be existed
+mongodb_bastion_subnet_id       = ""
+mongodb_bastion_keypair_name    = ""       # Prepared to be existed
 
 // MongoDB Config Servers
-mongodb_keypair_name            = "jihyungsong-new-key"       # Prepared to be existed
+mongodb_keypair_name            = ""       # Prepared to be existed
 mongodb_config_instance_type    = "c5.large"
 mongodb_config_server           = [
   {
     name          =   "mongodb-cfg1-dev",
-    subnet_id     =   "subnet-094cfa044f7da02f7"
+    subnet_id     =   ""
     root_device   =   {
       volume_type =   "gp3",
       volume_size =   100
@@ -20,7 +20,7 @@ mongodb_config_server           = [
   },
   {
     name          =   "mongodb-cfg2-dev",
-    subnet_id     =   "subnet-00f1529cccf86fb7a"
+    subnet_id     =   ""
     root_device   =   {
       volume_type =   "gp3",
       volume_size =   100
@@ -29,7 +29,7 @@ mongodb_config_server           = [
   },
   {
     name          =   "mongodb-cfg3-dev",
-    subnet_id     =   "subnet-0b70e0cba1fed4c03"
+    subnet_id     =   ""
     root_device   =   {
       volume_type =   "gp3",
       volume_size =   100
@@ -43,7 +43,7 @@ mongodb_replica_set_members = [
   {
     name          =   "mongodb-s1d1",                     # Replica Set 1
     instance_type =   "c5.2xlarge",
-    subnet_id     =   "subnet-094cfa044f7da02f7"
+    subnet_id     =   ""
     root_device   =   {
       volume_type =   "gp3",
       volume_size =   100
@@ -59,7 +59,7 @@ mongodb_replica_set_members = [
   {
     name          =   "mongodb-s1d2",
     instance_type =   "c5.2xlarge",
-    subnet_id     =   "subnet-00f1529cccf86fb7a"
+    subnet_id     =   ""
     root_device   =   {
       volume_type =   "gp3",
       volume_size =   100
@@ -75,7 +75,7 @@ mongodb_replica_set_members = [
   {
     name          =   "mongodb-s1d3",                     # Replica Set 1 (Arbiter)
     instance_type =   "c5.large",
-    subnet_id     =   "subnet-0b70e0cba1fed4c03"
+    subnet_id     =   ""
     root_device   =   {
       volume_type =   "gp3",
       volume_size =   100
@@ -85,7 +85,7 @@ mongodb_replica_set_members = [
   {
     name          =   "mongodb-s2d1",                     # Replica Set 2
     instance_type =   "c5.2xlarge",
-    subnet_id     =   "subnet-0e9909552eec70960"
+    subnet_id     =   ""
     root_device   =   {
       volume_type =   "gp3",
       volume_size =   100
@@ -101,7 +101,7 @@ mongodb_replica_set_members = [
   {
     name          =   "mongodb-s2d2",
     instance_type =   "c5.2xlarge",
-    subnet_id     =   "subnet-094cfa044f7da02f7"
+    subnet_id     =   ""
     root_device   =   {
       volume_type =   "gp3",
       volume_size =   100
@@ -117,7 +117,7 @@ mongodb_replica_set_members = [
   {
     name          =   "mongodb-s2d3",                     # Replica Set 2 (Arbiter)
     instance_type =   "c5.large",
-    subnet_id     =   "subnet-00f1529cccf86fb7a"
+    subnet_id     =   ""
     root_device   =   {
       volume_type =   "gp3",
       volume_size =   100
@@ -127,7 +127,7 @@ mongodb_replica_set_members = [
   {
     name          =   "mongodb-s3d1",                     # Replica Set 3
     instance_type =   "c5.2xlarge",
-    subnet_id     =   "subnet-0b70e0cba1fed4c03"
+    subnet_id     =   ""
     root_device   =   {
       volume_type =   "gp3",
       volume_size =   100
@@ -143,7 +143,7 @@ mongodb_replica_set_members = [
   {
     name          =   "mongodb-s3d2",
     instance_type =   "c5.2xlarge",
-    subnet_id     =   "subnet-0e9909552eec70960"
+    subnet_id     =   ""
     root_device   =   {
       volume_type =   "gp3",
       volume_size =   100
@@ -159,7 +159,7 @@ mongodb_replica_set_members = [
   {
     name          =   "mongodb-s3d3",                     # Replica Set 3 (Arbiter)
     instance_type =   "c5.large",
-    subnet_id     =   "subnet-094cfa044f7da02f7"
+    subnet_id     =   ""
     root_device   =   {
       volume_type =   "gp3",
       volume_size =   100

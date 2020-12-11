@@ -1,11 +1,11 @@
 # AWS S3 bucket name for backend
-bucket          = "jhsong-terraform-bucket"
+bucket          = ""
 
 # AWS S3 object key for tfstate file
-key             = "jhsong-terraform-dev-mongodb.tfstate"
+key             = ""
 
-region          = "us-east-1"
+region          = ""
 
 # support locking via DynamoDB
-dynamodb_table  = "jhsong-terraform-table"
+dynamodb_table  = ""
 
