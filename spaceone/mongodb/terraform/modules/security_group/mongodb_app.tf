@@ -1,7 +1,7 @@
 
 # SG for Application networking to MongoDB Shard Cluster
 resource "aws_security_group" "mongodb_app_sg" {
-  name        = "sg-app-mongodb-${var.environment}"
+  name        = "mongodb-app-${var.environment}"
   vpc_id      = var.vpc_id
 
   # Outbound ALL
@@ -13,7 +13,7 @@ resource "aws_security_group" "mongodb_app_sg" {
   }
 
   tags = {
-    Name        = "sg-app-mongodb-${var.environment}"
+    Name        = "mongodb-app-${var.environment}"
     Managed_by  = "terraform"
   }
 }

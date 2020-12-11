@@ -1,6 +1,6 @@
 # SG for Internal networking in MongoDB Shard Cluster
 resource "aws_security_group" "mongodb_internal_sg" {
-  name        = "sg-internal-${var.environment}"
+  name        = "mongodb-internal-${var.environment}"
   vpc_id      = var.vpc_id
 
   # Outbound ALL
@@ -12,7 +12,7 @@ resource "aws_security_group" "mongodb_internal_sg" {
   }
 
   tags = {
-    Name        = "sg-internal-${var.environment}"
+    Name        = "mongodb-internal-${var.environment}"
     Managed_by  = "terraform"
   }
 }
