@@ -49,3 +49,14 @@ resource "aws_security_group_rule" "mongodb_internal_ingress_rule_bastion_ssh_ac
   security_group_id             = aws_security_group.mongodb_internal_sg.id
   depends_on                    = [aws_security_group.mongodb_bastion_sg]
 }
+
+resource "aws_security_group_rule" "mongodb_internal_ingress_rule_self_access" {
+  type                          = "ingress"
+  description                   = "Allow traffic for internal traffic"
+  source_security_group_id      = aws_security_group.mongodb_internal_sg.id
+  from_port                     = 27028
+  to_port                       = 27028
+  protocol                      = "tcp"
+  security_group_id             = aws_security_group.mongodb_internal_sg.id
+  depends_on                    = [aws_security_group.mongodb_internal_sg]
+}
