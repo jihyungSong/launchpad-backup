@@ -1,6 +1,9 @@
+/*
+    Variables for MongoDB Shard Cluster
+*/
 
 // MongoDB Bastion
-mongodb_ami_id                  = ""     # Ubuntu 18.04 LTS in us-east-1
+mongodb_ami_id                  = ""     # Ubuntu 18.04 LTS in selected region
 mongodb_bastion_instance_type   = "t3.micro"
 mongodb_bastion_subnet_id       = ""
 mongodb_bastion_keypair_name    = ""       # Prepared to be existed
