@@ -1,11 +1,11 @@
 terraform {
-    backend "s3" {}
+  backend "s3" {}
 }
 
 provider "template" {}
 
 provider "aws"{
-    region              = var.region
+  region              = var.region
 }
 
 // Security Group for MongoDB
@@ -32,6 +32,7 @@ module "shard_cluster" {
   mongodb_bastion_instance_type       =   var.mongodb_bastion_instance_type
   mongodb_bastion_keypair_name        =   var.mongodb_bastion_keypair_name
 
+
   // MongoDB Config Server
   mongodb_keypair_name                =   var.mongodb_keypair_name
   mongodb_config_instance_type        =   var.mongodb_config_instance_type
@@ -45,4 +46,18 @@ module "shard_cluster" {
   mongodb_security_group_ids          =   [module.mongodb_security_group.mongodb_internal_sg_id, module.mongodb_security_group.mongodb_app_sg_id]
 
   depends_on                          =   [module.mongodb_security_group]
+}
+
+// MongoDB Route53 Records
+module "route53_record" {
+  source                              =   "./modules/route53"
+
+  // Route 53 parents domain
+  mongodb_parent_zone                 =   var.mongodb_parent_zone
+
+  // MongoDB Config Server
+  mongodb_config_servers              =   module.shard_cluster.mongodb_config_servers
+
+  // MongoDB Replica Set Members
+  mongodb_rs_members                  =   module.shard_cluster.mongodb_rs_members
 }

@@ -7,6 +7,17 @@ variable "mongodb_bastion_ingress_rule_admin_access_security_group_id" {}
 variable "mongodb_bastion_ingress_rule_admin_access_port" {}
 variable "mongodb_app_ingress_rule_mongodb_access_security_group_id" {}
 
+// MongoDB Server Domain
+variable "mongodb_parent_zone" {
+    description     = "Parent private hosted zone for MongoDB Replication Nodes"
+    type =  object({
+        name              = string
+        vpc_id            = string
+        zone_id           = string
+    })
+}
+
+
 // MongoDB Bastion
 variable "mongodb_ami_id" {}
 variable "mongodb_bastion_subnet_id" {}
