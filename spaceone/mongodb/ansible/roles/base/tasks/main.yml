@@ -12,6 +12,11 @@
     name: chrony
     state: absent
 
+- name: Creates chrony directory
+  file:
+    path: /etc/chrony
+    state: directory
+
 - name: Create ntp config file from template
   template:
     src: chrony.conf.template
