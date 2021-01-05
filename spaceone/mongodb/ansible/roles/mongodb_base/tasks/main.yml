@@ -1,7 +1,7 @@
 ---
 - name: Add mongodb package repository
   apt_repository:
-    repo: https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse
+    repo: deb https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse
     state: present
 
 - name: Update apt repository cache
