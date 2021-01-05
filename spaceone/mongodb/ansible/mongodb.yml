@@ -1,0 +1,6 @@
+---
+- name: Build mongodb cluster
+  hosts: tag_Name_ansible_mongodb_test
+  roles:
+    - base
+

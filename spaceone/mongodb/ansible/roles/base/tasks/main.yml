@@ -1,0 +1,20 @@
+---
+- name: Update apt repository cache
+  apt:
+    update_cache: yes
+
+- name: Convert Timezone to KST
+  timezone:
+    name: Asia/Seoul
+
+- name: Install chrony
+  apt:
+    name: chrony
+    state: absent
+
+- name: Create ntp config file from template
+  template:
+    src: chrony.conf.template
+    dest: /etc/chrony/chrony.conf
+  notify:
+    - restart chorny
