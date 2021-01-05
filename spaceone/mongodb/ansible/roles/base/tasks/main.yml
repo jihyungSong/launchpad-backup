@@ -10,7 +10,7 @@
 - name: Install chrony
   apt:
     name: chrony
-    state: absent
+    state: present
 
 - name: Creates chrony directory
   file:
