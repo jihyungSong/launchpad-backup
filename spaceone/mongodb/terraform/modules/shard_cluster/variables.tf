@@ -48,4 +48,3 @@ variable "mongodb_bastion_security_group_ids" {
 variable "mongodb_security_group_ids" {
     type = list(string)
 }
-

@@ -7,8 +7,10 @@ resource "aws_instance" "mongodb_bastion" {
   vpc_security_group_ids        =   var.mongodb_bastion_security_group_ids
 
   tags = {
-    Name        =   "mongodb-bastion-${var.environment}"
-    Managed_by  =   "terraform"
+    Name          =   "mongodb-bastion-${var.environment}"
+    server_type   =   "MongoDB"
+    mongodb_type  =   "bastion"
+    Managed_by    =   "terraform"
   }
 }
 
@@ -29,8 +31,10 @@ resource "aws_instance" "mongodb_config" {
   }
 
   tags = {
-    Name        =   "${lookup(var.mongodb_config_server[count.index], "name")}-${var.environment}"
-    Managed_by  =   "terraform"
+    Name          =   "${lookup(var.mongodb_config_server[count.index], "name")}-${var.environment}"
+    server_type   =   "MongoDB"
+    mongodb_type  =   "config"
+    Managed_by    =   "terraform"
   }
 }
 
@@ -64,7 +68,9 @@ resource "aws_instance" "mongodb_rs_member" {
   }
 
   tags = {
-    Name        =   "${lookup(var.mongodb_replica_set_members[count.index], "name")}-${var.environment}"
-    Managed_by  =   "terraform"
+    Name          =   "${lookup(var.mongodb_replica_set_members[count.index], "name")}-${var.environment}"
+    server_type   =   "MongoDB"
+    mongodb_type  =   "replica_member"
+    Managed_by    =   "terraform"
   }
 }
