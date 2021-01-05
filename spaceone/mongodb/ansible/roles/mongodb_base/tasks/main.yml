@@ -1,4 +1,9 @@
 ---
+- name: Add apt key
+  apt_key:
+    url: https://www.mongodb.org/static/pgp/server-4.4.asc
+    state: present
+
 - name: Add mongodb package repository
   apt_repository:
     repo: deb https://repo.mongodb.org/apt/ubuntu bionic/mongodb-org/4.4 multiverse
