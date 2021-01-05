@@ -23,3 +23,18 @@
     dest: /etc/chrony/chrony.conf
   notify:
     - restart chrony
+
+- name: Create xfs filesystem on data disk blocks
+  filesystem:
+    fstype: xfs
+    dev: /dev/{{ data_disk_device_name }}
+  when: ansible_facts['ansible_devices'][{{ data_disk_device_name }}] is defined
+
+- name: Creates data volume directory
+  file:
+    path: "{{ item }}"
+    state: directory
+  loop:
+    - /data
+    - /data/mongo
+
