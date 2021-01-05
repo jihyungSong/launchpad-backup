@@ -22,4 +22,4 @@
     src: chrony.conf.template
     dest: /etc/chrony/chrony.conf
   notify:
-    - restart chorny
+    - restart chrony
