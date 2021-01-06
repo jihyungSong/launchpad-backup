@@ -47,7 +47,7 @@
 
 - name: Mount and bind a volume
   mount:
-    path: {{ mongo_data_path }}
+    path: "{{ mongo_data_path }}"
     src: /dev/{{ data_disk_device_name }}
     fstype: xfs
     state: mounted
