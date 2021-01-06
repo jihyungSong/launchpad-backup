@@ -22,6 +22,11 @@
     name: chrony
     state: present
 
+- name: Install pip
+  apt:
+    name: python-pip
+    state: present
+
 - name: Creates chrony directory
   file:
     path: /etc/chrony
@@ -75,3 +80,8 @@
     owner: mongodb
     group: mongodb
   when: data_directory.stat.exists
+
+- name: Install python package (pymongo)
+  pip:
+    name:
+      - pymongo
