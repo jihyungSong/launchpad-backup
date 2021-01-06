@@ -5,7 +5,7 @@ replication:
 net:
   port: {{ shard_port }}
 storage:
-   dbPath: {{ mongo_data_path: /data/mongo }}
+   dbPath: {{ mongo_data_path }}
    journal:
       enabled: true
 systemLog:
