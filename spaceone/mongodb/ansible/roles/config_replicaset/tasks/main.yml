@@ -1,0 +1,14 @@
+---
+- name: Create config server config file from template
+  template:
+    src: config_server_mongod.conf.template
+    dest: /etc/mongod.conf
+  notify:
+    - restart mongod
+
+- name: Config server replicaset
+  community.mongodb.mongodb_replicaset:
+    login_host: localhost
+    replica_set: rs-cfg
+    members: "{{ config_members }}"
+  when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"

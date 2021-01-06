@@ -1,10 +1,10 @@
 ---
-- name: Build config_server cluster
+- name: Build MongoDB cluster
   hosts: tag_server_type_mongodb
   roles:
     - base
 
-- name: Build config server
+- name: Build Config Replicaset
   hosts: tag_rs_type_config
   roles:
-    - config_server
+    - config_replicaset

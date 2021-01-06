@@ -38,3 +38,5 @@ become = true
 [inventory]
 enable_plugins = aws_ec2
 EOF
+
+sudo ansible-galaxy collection install community.mongodb
