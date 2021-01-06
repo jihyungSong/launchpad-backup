@@ -1,4 +1,5 @@
 ---
 ntp_server: 169.254.169.123
 data_disk_device_name: xvdb
+mongo_data_path: /data/mongo
 

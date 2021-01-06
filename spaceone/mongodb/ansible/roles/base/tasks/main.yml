@@ -42,15 +42,32 @@
 
 - name: Creates data volume directory
   file:
-    path: "{{ item }}"
+    path: {{ mongo_data_path }}
     state: directory
-  loop:
-    - /data
-    - /data/mongo
 
 - name: Mount and bind a volume
   mount:
-    path: /data/mongo
+    path: {{ mongo_data_path }}
     src: /dev/{{ data_disk_device_name }}
     fstype: xfs
     state: mounted
+  when: data_disk_device_name in ansible_devices
+
+- name: Swappiness for MongoDB
+  sysctl:
+    name: vm.swappiness
+    value: 1
+    state: present
+
+- name: Install MongoDB
+  apt:
+    name: mongodb-org
+    state: present
+
+- name: Change owner for mongodb directory
+  file:
+    path: {{ mongo_data_path }}
+    owner: mongodb
+    group: mongodb
+  register: data_directory
+  when: data_directory.stat.exists

@@ -1,5 +1,0 @@
----
-- name: Install MongoDB
-  apt:
-    name: mongodb-org
-    state: present

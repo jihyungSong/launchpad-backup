@@ -1,0 +1,17 @@
+sharding:
+  clusterRole: configsvr
+replication:
+  replSetName: rs-cfg
+net:
+  port: {{ shard_port }
+storage:
+   dbPath: {{ mongo_data_path: /data/mongo }}
+   journal:
+      enabled: true
+systemLog:
+   destination: file
+   path: {{ mongo_log_path }}
+   logAppend: true
+#security:
+#   keyFile: /home/ubuntu/mongoconfig/mongo-shard.pem
+#   authorization: enabled

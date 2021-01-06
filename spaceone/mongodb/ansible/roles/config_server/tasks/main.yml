@@ -1,0 +1,7 @@
+---
+- name: Create config server config file from template
+  template:
+    src: config_server_mongod.conf.template
+    dest: /etc/mongod.conf
+  notify:
+    - restart mongod

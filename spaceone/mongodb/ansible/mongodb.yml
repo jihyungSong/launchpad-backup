@@ -1,7 +1,10 @@
 ---
-- name: Build mongodb cluster
-  hosts: tag_Name_ansible_mongodb_test
+- name: Build config_server cluster
+  hosts: tag_server_type_mongodb
   roles:
-    - mongodb_base
-    - mongodb
+    - base
 
+- name: Build config server
+  hosts: tag_rs_type_config
+  roles:
+    - config_server
