@@ -44,6 +44,7 @@
   file:
     path: "{{ mongo_data_path }}"
     state: directory
+  register: data_directory
 
 - name: Mount and bind a volume
   mount:
@@ -69,5 +70,4 @@
     path: "{{ mongo_data_path }}"
     owner: mongodb
     group: mongodb
-  register: data_directory
   when: data_directory.stat.exists
