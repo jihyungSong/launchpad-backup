@@ -42,7 +42,7 @@
 
 - name: Creates data volume directory
   file:
-    path: {{ mongo_data_path }}
+    path: "{{ mongo_data_path }}"
     state: directory
 
 - name: Mount and bind a volume
@@ -66,7 +66,7 @@
 
 - name: Change owner for mongodb directory
   file:
-    path: {{ mongo_data_path }}
+    path: "{{ mongo_data_path }}"
     owner: mongodb
     group: mongodb
   register: data_directory
