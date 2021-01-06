@@ -44,6 +44,10 @@
   file:
     path: "{{ mongo_data_path }}"
     state: directory
+
+- name: Check that the data directory exists
+  stat:
+    path: "{{ mongo_data_path }}"
   register: data_directory
 
 - name: Mount and bind a volume
