@@ -3,7 +3,7 @@ sharding:
 replication:
   replSetName: rs-cfg
 net:
-  port: {{ shard_port }
+  port: {{ shard_port }}
 storage:
    dbPath: {{ mongo_data_path: /data/mongo }}
    journal:
