@@ -1,7 +1,7 @@
 sharding:
-  clusterRole: configsvr
+  clusterRole: shardsvr
 replication:
-  replSetName: rs-cfg
+  replSetName: {{ shard_name }}
 net:
   bindIpAll: true
   port: {{ shard_port }}
@@ -13,6 +13,6 @@ systemLog:
    destination: file
    path: {{ mongo_log_path }}
    logAppend: true
-security:
-   keyFile: /home/ubuntu/mongoconfig/mongo-shard.pem
-   authorization: enabled
+#security:
+#   keyFile: /home/ubuntu/mongoconfig/mongo-shard.pem
+#   authorization: enabled

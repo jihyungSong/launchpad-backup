@@ -8,3 +8,14 @@
   hosts: tag_rs_type_config
   roles:
     - config_replicaset
+
+- name: Build Data node Replicaset
+  hosts: "{{ items }}"
+  include_role:
+    name: data_node_replicaset
+  vars:
+    host_group: "{{ items }}"
+  with_items:
+    - tag_replica_set_1
+    - tag_replica_set_2
+    - tag_replica_set_3

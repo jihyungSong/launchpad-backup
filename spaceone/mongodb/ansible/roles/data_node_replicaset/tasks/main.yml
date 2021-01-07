@@ -3,14 +3,16 @@
   template:
     src: config_server_mongod_without_security.conf.template
     dest: /etc/mongod.conf
+  vars:
+    shard_name: "{{ replica_info[host_group].shard }}"
   notify:
     - restart mongod
 
-- name: Config server replicaset
+- name: Shard node replicaset
   community.mongodb.mongodb_replicaset:
     login_host: localhost:{{ shard_port }}
-    replica_set: rs-cfg
-    members: "{{ config_members }}"
+    replica_set: "{{ replica_info[host_group].shard }}"
+    members: "{{ replica_info[host_group].members }}"
   when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
 
 #- name: Create admin user
