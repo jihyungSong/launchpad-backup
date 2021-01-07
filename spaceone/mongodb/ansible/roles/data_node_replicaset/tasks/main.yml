@@ -43,5 +43,7 @@
   template:
     src: mongod.conf.template
     dest: /etc/mongod.conf
+  vars:
+    shard_name: "{{ replica_info[host_group].shard }}"
   notify:
     - restart mongod
