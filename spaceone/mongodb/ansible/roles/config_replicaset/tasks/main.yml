@@ -26,6 +26,7 @@
 
 - name: Create admin user
   mongodb_user:
+    login_host: localhost:{{ shard_port }}
     database: admin
     name: "{{ admin_user }}"
     password: "{{ admin_password }}"
