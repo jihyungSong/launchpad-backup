@@ -86,7 +86,8 @@
     name:
       - pymongo
 
-- name: Enable mongod service
+- name: Start service mongod if not started and enabled
   service:
     name: mongod
+    state: started
     enabled: yes
