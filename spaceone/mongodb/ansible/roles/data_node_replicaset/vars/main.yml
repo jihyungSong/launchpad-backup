@@ -5,21 +5,21 @@ replica_info:
     members:
       - "mongodb-s1d1-dev.db.jhsong-mongodb-test:27028"
       - "mongodb-s1d2-dev.db.jhsong-mongodb-test:27028"
-      - "mongodb-s1d3-dev.db.jhsong-mongodb-test:27028"
+      - "mongodb-s1d3-dev.db.jhsong-mongodb-test:27028"   # Arbiter
     arbiter_index: 2
   tag_replica_set_2:
     shard: rs-shard2
     members:
       - "mongodb-s2d1-dev.db.jhsong-mongodb-test:27028"
       - "mongodb-s2d2-dev.db.jhsong-mongodb-test:27028"
-      - "mongodb-s2d3-dev.db.jhsong-mongodb-test:27028"
+      - "mongodb-s2d3-dev.db.jhsong-mongodb-test:27028"   # Arbiter
     arbiter_index: 2
   tag_replica_set_3:
     shard: rs-shard3
     members:
       - "mongodb-s3d1-dev.db.jhsong-mongodb-test:27028"
       - "mongodb-s3d2-dev.db.jhsong-mongodb-test:27028"
-      - "mongodb-s3d3-dev.db.jhsong-mongodb-test:27028"
+      - "mongodb-s3d3-dev.db.jhsong-mongodb-test:27028"   # Arbiter
     arbiter_index: 2
 
 admin_user: admin
