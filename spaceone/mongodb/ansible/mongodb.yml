@@ -9,13 +9,23 @@
   roles:
     - config_replicaset
 
-- name: Build Data node Replicaset
-  hosts: "{{ items }}"
+- name: Build Data node Replicaset 1
+  hosts: tag_replica_set_1
   roles:
     - data_node_replicaset
   vars:
-    host_group: "{{ items }}"
-  with_items:
-    - tag_replica_set_1
-    - tag_replica_set_2
-    - tag_replica_set_3
+    host_group: "tag_replica_set_1"
+
+- name: Build Data node Replicaset 2
+  hosts: tag_replica_set_2
+  roles:
+    - data_node_replicaset
+  vars:
+    host_group: "tag_replica_set_2"
+
+- name: Build Data node Replicaset 3
+  hosts: tag_replica_set_3
+  roles:
+    - data_node_replicaset
+  vars:
+    host_group: "tag_replica_set_2"
