@@ -85,3 +85,8 @@
   pip:
     name:
       - pymongo
+
+- name: Enable mongod service
+  service:
+    name: mongod
+    enabled: yes
