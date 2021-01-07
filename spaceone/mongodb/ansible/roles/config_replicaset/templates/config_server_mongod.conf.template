@@ -3,6 +3,7 @@ sharding:
 replication:
   replSetName: rs-cfg
 net:
+  bindIp: 0.0.0.0
   port: {{ shard_port }}
 storage:
    dbPath: {{ mongo_data_path }}
