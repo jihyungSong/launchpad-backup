@@ -11,8 +11,8 @@
 
 - name: Build Data node Replicaset
   hosts: "{{ items }}"
-  include_role:
-    name: data_node_replicaset
+  roles:
+    - data_node_replicaset
   vars:
     host_group: "{{ items }}"
   with_items:
