@@ -5,8 +5,15 @@
     dest: /etc/mongod.conf
   vars:
     shard_name: "{{ replica_info[host_group].shard }}"
+  register: mongod_conf
   notify:
     - restart mongod
+
+- name: Restart mongod service
+  service:
+    name: mongod
+    state: restarted
+  when: mongod_conf.changed
 
 - name: Shard node replicaset
   community.mongodb.mongodb_replicaset:

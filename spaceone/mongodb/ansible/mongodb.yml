@@ -1,5 +1,5 @@
 ---
-- name: Build MongoDB cluster
+- name: Initialize for MongoDB cluster
   hosts: tag_server_type_mongodb
   roles:
     - base

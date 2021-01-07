@@ -5,6 +5,13 @@
     dest: /etc/mongod.conf
   notify:
     - restart mongod
+  register: mongod_conf
+
+- name: Restart mongod service
+  service:
+    name: mongod
+    state: restarted
+  when: mongod_conf.changed
 
 - name: Config server replicaset
   community.mongodb.mongodb_replicaset:
