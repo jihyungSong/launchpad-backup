@@ -28,4 +28,4 @@
   roles:
     - data_node_replicaset
   vars:
-    host_group: "tag_replica_set_2"
+    host_group: "tag_replica_set_3"

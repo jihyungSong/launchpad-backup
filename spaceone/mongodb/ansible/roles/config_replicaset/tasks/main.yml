@@ -1,7 +1,7 @@
 ---
 - name: Create config server config file from template
   template:
-    src: config_server_mongod_without_security.conf.template
+    src: mongod_without_security.conf.template
     dest: /etc/mongod.conf
   notify:
     - restart mongod
