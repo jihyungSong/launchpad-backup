@@ -27,14 +27,14 @@
 - name: Generate an OpenSSL private key
   command: openssl rand -base64 756 > {{ private_key_path }}
   args:
-    creates: {{ private_key_path }}
+    creates: "{{ private_key_path }}"
   when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
 
 - name: Create admin user
   mongodb_user:
     database: admin
-    name: {{ admin_user }}
-    password: {{ admin_password }}
+    name: "{{ admin_user }}"
+    password: "{{ admin_password }}"
     roles:
       - db: admin
         role: root
