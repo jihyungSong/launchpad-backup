@@ -83,7 +83,7 @@
 
 - name: Create directory for private key
   file:
-    path: "{{ private_key_path }}/{{ private_key }}"
+    path: "{{ private_key_path }}"
     state: directory
 
 - name: Create Private Key for mongo access
