@@ -15,11 +15,16 @@
     state: restarted
   when: mongod_conf.changed
 
+- name: Pause for 3 seconds for mongod prcoess
+  pause:
+    seconds: 3
+
 - name: Shard node replicaset
   community.mongodb.mongodb_replicaset:
     login_host: localhost:{{ shard_port }}
     replica_set: "{{ replica_info[host_group].shard }}"
     members: "{{ replica_info[host_group].members }}"
+    arbiter_at_index: "{{ replica_info[host_group].arbiter_index }}"
   when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
 
 #- name: Create admin user
