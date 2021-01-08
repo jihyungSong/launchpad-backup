@@ -39,17 +39,17 @@
     members: "{{ config_members }}"
   when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
 
-#- name: Create admin user
-#  mongodb_user:
-#    login_host: localhost:{{ shard_port }}
-#    database: admin
-#    name: "{{ admin_user }}"
-#    password: "{{ admin_password }}"
-#    roles:
-#      - db: admin
-#        role: root
-#    state: present
-#  when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
+- name: Create admin user
+  mongodb_user:
+    login_host: localhost:{{ shard_port }}
+    database: admin
+    name: "{{ admin_user }}"
+    password: "{{ admin_password }}"
+    roles:
+      - db: admin
+        role: root
+    state: present
+  when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
 
 #- name: Change config server(with security) config from template
 #  template:
