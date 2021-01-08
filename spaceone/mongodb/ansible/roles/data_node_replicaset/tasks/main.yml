@@ -19,23 +19,23 @@
   pause:
     seconds: 3
 
-- name: Create admin user
-  mongodb_user:
-    login_host: localhost:{{ shard_port }}
-    database: admin
-    name: "{{ admin_user }}"
-    password: "{{ admin_password }}"
-    roles:
-      - db: admin
-        role: root
-    state: present
-  when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
+#- name: Create admin user
+#  mongodb_user:
+#    login_host: localhost:{{ shard_port }}
+#    database: admin
+#    name: "{{ admin_user }}"
+#    password: "{{ admin_password }}"
+#    roles:
+#      - db: admin
+#        role: root
+#    state: present
+#  when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
 
 - name: Shard node replicaset
   community.mongodb.mongodb_replicaset:
     login_host: localhost:{{ shard_port }}
-    login_user: "{{ admin_user }}"
-    login_password: "{{ admin_password }}"
+#    login_user: "{{ admin_user }}"
+#    login_password: "{{ admin_password }}"
     login_database: admin
     replica_set: "{{ replica_info[host_group].shard }}"
     members: "{{ replica_info[host_group].members }}"
