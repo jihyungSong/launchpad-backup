@@ -39,6 +39,10 @@
     members: "{{ config_members }}"
   when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
 
+- name: Pause for 5 seconds for replicaset
+  pause:
+    seconds: 5
+
 - name: Create admin user
   mongodb_user:
     login_host: localhost:{{ shard_port }}
