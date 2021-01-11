@@ -25,13 +25,14 @@
     members: "{{ config_members }}"
   when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
 
-- name: Pause for 20 seconds for replicaset
+- name: Pause for 10 seconds for replicaset
   pause:
-    seconds: 20
+    seconds: 10
 
 - name: Create admin user
-  mongodb_user:
-    login_host: localhost:{{ shard_port }}
+  community.mongodb.mongodb_user:
+    login_host: localhost
+    login_port: "{{ shard_port }}"
     database: admin
     name: "{{ admin_user }}"
     password: "{{ admin_password }}"
@@ -39,7 +40,6 @@
       - db: admin
         role: root
     state: present
-  when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
 
 - name: Change config server(with security) config from template
   template:
