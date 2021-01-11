@@ -20,8 +20,6 @@
 - name: Config server replicaset
   community.mongodb.mongodb_replicaset:
     login_host: localhost:{{ shard_port }}
-    login_user: "{{ admin_user }}"
-    login_password: "{{ admin_password }}"
     login_database: admin
     replica_set: rs-cfg
     members: "{{ config_members }}"
