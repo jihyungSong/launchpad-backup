@@ -28,9 +28,9 @@
     arbiter_at_index: "{{ replica_info[host_group].arbiter_index }}"
   when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
 
-- name: Pause for 10 seconds for replicaset
+- name: Pause for 30 seconds for replicaset
   pause:
-    seconds: 10
+    seconds: 30
 
 - name: Create admin user
   community.mongodb.mongodb_user:
@@ -43,6 +43,7 @@
       - db: admin
         role: root
     state: present
+  when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
 
 - name: Change config server(with security) config from template
   template:
