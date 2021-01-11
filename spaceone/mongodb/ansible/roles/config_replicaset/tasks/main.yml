@@ -41,16 +41,16 @@
     state: present
   when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
 
-#- name: Change config server(with security) config from template
-#  template:
-#    src: mongod.conf.template
-#    dest: /etc/mongod.conf
-#  notify:
-#    - restart mongod
-#  register: mongod_conf_with_security
-#
-#- name: Restart mongod service
-#  service:
-#    name: mongod
-#    state: restarted
-#  when: mongod_conf_with_security.changed
+- name: Change config server(with security) config from template
+  template:
+    src: mongod.conf.template
+    dest: /etc/mongod.conf
+  notify:
+    - restart mongod
+  register: mongod_conf_with_security
+
+- name: Restart mongod service
+  service:
+    name: mongod
+    state: restarted
+  when: mongod_conf_with_security.changed
