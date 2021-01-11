@@ -25,9 +25,9 @@
     members: "{{ config_members }}"
   when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
 
-- name: Pause for 5 seconds for replicaset
+- name: Pause for 10 seconds for replicaset
   pause:
-    seconds: 5
+    seconds: 10
 
 - name: Create admin user
   mongodb_user:
@@ -40,7 +40,7 @@
         role: root
     state: present
   when: ansible_facts.ansible_local.custom.mongodb.rs_primary == "true"
-#
+
 #- name: Change config server(with security) config from template
 #  template:
 #    src: mongod.conf.template
